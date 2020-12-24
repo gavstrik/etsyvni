@@ -4,9 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Hvad er de politiske akser i Danmark? | etsyvni</title>
+<title>De politiske akser i Danmark | etsyvni</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Hvad er de politiske akser i Danmark?" />
+<meta property="og:title" content="De politiske akser i Danmark" />
 <meta name="author" content="Robin Engelhardt" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="En analyse af hvordan danske politikere stemmer i folketinget" />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-11-29T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"En analyse af hvordan danske politikere stemmer i folketinget","url":"https://gavstrik.github.io/etsyvni/notebook/pca/folketinget/politik/2020/11/29/pca.html","@type":"BlogPosting","headline":"Hvad er de politiske akser i Danmark?","dateModified":"2020-11-29T00:00:00-06:00","datePublished":"2020-11-29T00:00:00-06:00","author":{"@type":"Person","name":"Robin Engelhardt"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gavstrik.github.io/etsyvni/notebook/pca/folketinget/politik/2020/11/29/pca.html"},"@context":"https://schema.org"}</script>
+{"description":"En analyse af hvordan danske politikere stemmer i folketinget","url":"https://gavstrik.github.io/etsyvni/notebook/pca/folketinget/politik/2020/11/29/pca.html","@type":"BlogPosting","headline":"De politiske akser i Danmark","dateModified":"2020-11-29T00:00:00-06:00","datePublished":"2020-11-29T00:00:00-06:00","author":{"@type":"Person","name":"Robin Engelhardt"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gavstrik.github.io/etsyvni/notebook/pca/folketinget/politik/2020/11/29/pca.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/etsyvni/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gavstrik.github.io/etsyvni/feed.xml" title="etsyvni" /><link rel="shortcut icon" type="image/x-icon" href="/etsyvni/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -72,7 +72,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Hvad er de politiske akser i Danmark?</h1><p class="page-description">En analyse af hvordan danske politikere stemmer i folketinget</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-29T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">De politiske akser i Danmark</h1><p class="page-description">En analyse af hvordan danske politikere stemmer i folketinget</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-29T00:00:00-06:00" itemprop="datePublished">
         Nov 29, 2020
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -80,7 +80,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      28 min read
+      31 min read
     
 </span></p>
 
@@ -140,8 +140,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Vi har for vane at opdele politik i højre- og venstrefløj. Men hvorfor egentlig det? Den historiske begrundelse er meget simpel: det var sådan medlemmerne af den franske nationalforsamling placerede sig efter den franske revolution i 1789. Dem til højre i salen var loyale over for konge og kirke, dem til venstre i salen støttede revolutionen. På den måde undgik man de værste <a href="https://www.youtube.com/watch?v=GSXQ1ZgH7NQ">slåskampe</a> mens man skændtes om Frankrings fremtid.</p>
-<p>Opdelingen har overlevet til i dag. Når nye politiske partier entrerer de nationale parlamenter, bliver de placeret i forhold til en højre-venstre akse, selv når deres politiske program ikke lige passer ind i den opdeling. For eksempel bliver grønne partier ofte placeret på venstre side, selvom naturbevaring jo lige så meget er en konservativ dyd.</p>
+<p>Vi har for vane at opdele politik i højre- og venstrefløj. Den historiske begrundelse er oplysende: det var sådan medlemmerne af den franske nationalforsamling placerede sig efter den franske revolution i 1789. Dem til højre i salen var loyale over for konge og kirke, dem til venstre støttede revolutionen. På den måde undgik man de værste albuehug og <a href="https://www.youtube.com/watch?v=GSXQ1ZgH7NQ">slåskampe</a> mens man skændtes om Frankrings fremtid.</p>
+<p>Hvordan burde de danske medlemmer af folketinget sidde i dag, hvis vi ville minimere risikoen for den slags håndgemæng? Altså spurgt på en mere nøjagtig måde: hvordan placerer man danske politiker i et lokale så deres politiske uenighed afspejles bedst muligt via deres afstande på en to-dimensionel flade? Det findes faktisk en simpel matematisk metode til at finde ud af det på, som kaldes en 'principal component analyse' (pca), og gevinsten ved en sådan øvelse vil være, at vi kan se om de politiske partier vitterlig stemmer i forhold til det vil kalder en højre- og venstrefløj. Vi vil med andre ord kunne svare på om det virkelig er rigtig, at Enhedslisten og Dansk Folkeparti er længst fra hinanden på en horizontal akse. Vi vil også kunne finde ud af hvordan partierne grupperer sig i forhold til andre ideologiske akser, hvoraf den vigtigste næstefter den horizontale x-akse er den, der spændes ud af en vertikal y-akse, og som repræsenterer vigtige en politiske uenigheder, der ikke fanges af højre-venstre-opdelingen. Vi vil også kunne se, hvad der er for nogle afstemninger, der skiller vandene mest, og en analyse på tværs af årene vil kunne vise, hvordan partierne har bevæget sig i forhold til hinanden.</p>
+<p>Vi kan starte med at se på det danske folketing anno 2020:</p>
 
 </div>
 </div>
@@ -174,6 +175,14 @@ window.onload = wrap_img;
 <span style="display:inline-block;vertical-align:top;box-sizing:border-box;width:34px;height:23px;overflow:hidden;font-size:15px;border:thin solid #333;background:#3FB2BE;color:#202122;text-align:center;"> </span> Liberal Alliance: 3 mandater</div> <div style="direction:ltr;line-height:23px;">
 <span style="display:inline-block;vertical-align:top;box-sizing:border-box;width:34px;height:23px;overflow:hidden;font-size:15px;border:thin solid #333;background:#EAC73E;color:#202122;text-align:center;"> </span> Dansk Folkeparti: 16 mandater</div> <div style="direction:ltr;line-height:23px;">
 <span style="display:inline-block;vertical-align:top;box-sizing:border-box;width:34px;height:23px;overflow:hidden;font-size:15px;border:thin solid #333;background:#127B7F;color:#202122;text-align:center;"> </span> Nye Borgerlige: 4 mandater</div>&lt;/td&gt;
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Der er ti danske partier og fire oversøiske. Og så er der fire mandater uden for folketingsgrupperne som udgør løsgængerne de Frie Grønne samt Simon Emil Ammitzbøll-Bille. Alle data finder vi via den frit tilgængelige database på oda.ft.dk.</p>
 
 </div>
 </div>
@@ -215,7 +224,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We start by calling the SQL server and write a query which is imported into a pandas dataframe. The period we want to investigate is given by the parameter periodid.</p>
+<p>Vi starter med at kalde en SQL server og skrive en søgning hvor resultatet importeres til en pandas dataframe. Den periode vi er interesseret i er perioden 2019-2020 som har id = 151.</p>
 
 </div>
 </div>
@@ -223,12 +232,180 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description" open="">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">period_txt</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sql_query</span><span class="p">[</span><span class="s1">'periodeid'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">': '</span> <span class="o">+</span> <span class="n">sql_query</span><span class="o">.</span><span class="n">period</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">period_txt</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">periodid</span> <span class="o">=</span> <span class="mi">151</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">'Driver={SQL Server};'</span>
+                      <span class="s1">'Server=HUM1006903\SQLEXPRESS;'</span>
+                      <span class="s1">'Database=oda_20201103;'</span>
+                      <span class="c1">#'Database=oda;'</span>
+                      <span class="s1">'Trusted_Connection=yes;'</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="n">sql_query</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">'SELECT </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Afstemning.id AS afstemning, </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Sag.periodeid, </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Periode.titel AS periode, </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Sag.titel AS titel, </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Sag.resume, </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Afstemning.konklusion, </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Sagstrin.dato, </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Stemme.typeid AS stemme, </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Aktør.fornavn, </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Aktør.efternavn, </span><span class="se">\</span>
+<span class="s1">        oda.dbo.Aktør.biografi </span><span class="se">\</span>
+<span class="s1">    FROM oda.dbo.Afstemning </span><span class="se">\</span>
+<span class="s1">    JOIN oda.dbo.Stemme ON oda.dbo.Afstemning.id = oda.dbo.Stemme.afstemningid </span><span class="se">\</span>
+<span class="s1">    JOIN oda.dbo.Aktør ON oda.dbo.Aktør.id = oda.dbo.Stemme.aktørid </span><span class="se">\</span>
+<span class="s1">    JOIN oda.dbo.Sagstrin ON oda.dbo.Sagstrin.id = oda.dbo.Afstemning.sagstrinid </span><span class="se">\</span>
+<span class="s1">    JOIN oda.dbo.Sag ON oda.dbo.Sag.id = oda.dbo.Sagstrin.sagid </span><span class="se">\</span>
+<span class="s1">    JOIN oda.dbo.Periode ON oda.dbo.Sag.periodeid = oda.dbo.Periode.id </span><span class="se">\</span>
+<span class="s1">    WHERE oda.dbo.Sag.periodeid='</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">periodid</span><span class="p">)</span><span class="o">+</span><span class="s1">';'</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+
+<span class="n">sql_query</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>afstemning</th>
+      <th>periodeid</th>
+      <th>periode</th>
+      <th>titel</th>
+      <th>resume</th>
+      <th>konklusion</th>
+      <th>dato</th>
+      <th>stemme</th>
+      <th>fornavn</th>
+      <th>efternavn</th>
+      <th>biografi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7165</td>
+      <td>151</td>
+      <td>2019-20</td>
+      <td>Forslag til folketingsbeslutning om danske mil...</td>
+      <td>Med folketingsbeslutningen får regeringen Folk...</td>
+      <td>Forslaget blev vedtaget. For stemte 106 (S, V,...</td>
+      <td>2019-10-24</td>
+      <td>1</td>
+      <td>Erling</td>
+      <td>Bonnesen</td>
+      <td>&lt;member&gt;&lt;url&gt;/medlemmer/mf/e/erling-bonnesen&lt;/...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>7165</td>
+      <td>151</td>
+      <td>2019-20</td>
+      <td>Forslag til folketingsbeslutning om danske mil...</td>
+      <td>Med folketingsbeslutningen får regeringen Folk...</td>
+      <td>Forslaget blev vedtaget. For stemte 106 (S, V,...</td>
+      <td>2019-10-24</td>
+      <td>1</td>
+      <td>Morten</td>
+      <td>Bødskov</td>
+      <td>&lt;member&gt;&lt;url&gt;/medlemmer/mf/m/morten-boedskov&lt;/...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7165</td>
+      <td>151</td>
+      <td>2019-20</td>
+      <td>Forslag til folketingsbeslutning om danske mil...</td>
+      <td>Med folketingsbeslutningen får regeringen Folk...</td>
+      <td>Forslaget blev vedtaget. For stemte 106 (S, V,...</td>
+      <td>2019-10-24</td>
+      <td>1</td>
+      <td>Bent</td>
+      <td>Bøgsted</td>
+      <td>&lt;member&gt;&lt;url&gt;/medlemmer/mf/b/bent-boegsted&lt;/ur...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7165</td>
+      <td>151</td>
+      <td>2019-20</td>
+      <td>Forslag til folketingsbeslutning om danske mil...</td>
+      <td>Med folketingsbeslutningen får regeringen Folk...</td>
+      <td>Forslaget blev vedtaget. For stemte 106 (S, V,...</td>
+      <td>2019-10-24</td>
+      <td>1</td>
+      <td>Lennart</td>
+      <td>Damsbo-Andersen</td>
+      <td>&lt;member&gt;&lt;url&gt;/medlemmer/mf/l/lennart-damsbo-an...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7165</td>
+      <td>151</td>
+      <td>2019-20</td>
+      <td>Forslag til folketingsbeslutning om danske mil...</td>
+      <td>Med folketingsbeslutningen får regeringen Folk...</td>
+      <td>Forslaget blev vedtaget. For stemte 106 (S, V,...</td>
+      <td>2019-10-24</td>
+      <td>1</td>
+      <td>Louise Schack</td>
+      <td>Elholm</td>
+      <td>&lt;member&gt;&lt;url&gt;/medlemmer/mf/l/louise-schack-elh...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sql_query</span><span class="o">.</span><span class="n">afstemning</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sql_query</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -240,45 +417,11 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'151: 2019-20'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>323
+57817
+</pre>
 </div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">sql_query</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>57817</pre>
-</div>
-
 </div>
 
 </div>
@@ -290,7 +433,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Som man kan se, er der kun knap 58.000 rækker i dataframen (coronakrisen i 2020 betød at afstemninger efter 28. maj 2020 blev foretaget ved håndsoprækkelse og derfor ikke er inkluderet i databasen). Tabellen indeholder ikke nogen kolonne der angiver hvilket parti folketingsmedlemmerne tilhører. Det haves ikke i databasen. Eneste sted jeg kan se at man kan finde et folketingsmedlems partitilknytning i data er i "biografi"-kolonnen, som består af en masse XML tags. For at ekstrahere partinavnet, der er placeret mellem tagsene "party", bruger jeg bibliotekten xml.etree:</p>
+<p>Som man kan se, er der kun 323 afstemninger og knap 58.000 rækker i dataframen. Coronakrisen i 2020 betød at afstemninger mellem 28. maj 2020 og midt november blev foretaget ved håndsoprækkelse og derfor ikke er inkluderet i databasen). Tabellen indeholder heller ikke nogen kolonne, der angiver hvilket parti folketingsmedlemmerne tilhører. Det haves ikke i databasen. Eneste sted jeg kan se, at man kan finde et folketingsmedlems partitilknytning i data er i "biografi"-kolonnen, som består af en masse XML tags. For at ekstrahere partinavnet, der er placeret mellem tagsene "party", bruger jeg bibliotekten xml.etree:</p>
 
 </div>
 </div>
@@ -312,23 +455,7 @@ window.onload = wrap_img;
         <span class="n">party</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
         <span class="k">continue</span>
 <span class="n">sql_query</span><span class="p">[</span><span class="s1">'party'</span><span class="p">]</span> <span class="o">=</span> <span class="n">party</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql_query</span><span class="o">.</span><span class="n">party</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">sql_query</span><span class="o">.</span><span class="n">party</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -362,33 +489,6 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Lad os lige tjekke at alle partimedlemmer nu også tilhører et parti:</p>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sql_query</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">party</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">'afstemning_id'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">'fornavn'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">'efternavn'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">'stemme'</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Næste skridt i rensningen af data består i at omkode de enkelte stemmer så deres numeriske værdi er normaliseret og kan bruges i analysen. Folketingets database har kodet dem sådan at et 1-tal betyder en stemme FOR, et 2-tal betyder IMOD, et 3-tal betyder FRAVÆR, og et 4-tal betyder "Hverken for eller imod". I stedet koder jeg dem sådan at 1 betyder FOR, -1 betyder "IMOD", og 0 betyder "hverken for eller imod. Desuden samler jeg for- og efternavn og beholder kun de kolonner, vi har brug for:</p>
 
 </div>
@@ -401,7 +501,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql_query</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sql_query</span><span class="p">[[</span><span class="s1">'fornavn'</span><span class="p">,</span> <span class="s1">'efternavn'</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql_query</span><span class="p">[</span><span class="s1">'navn'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sql_query</span><span class="p">[[</span><span class="s1">'fornavn'</span><span class="p">,</span> <span class="s1">'efternavn'</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -414,13 +514,16 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description" open="">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sql_query</span><span class="p">[[</span><span class="s1">'bill'</span><span class="p">,</span> <span class="s1">'titel'</span><span class="p">,</span> <span class="s1">'resume'</span><span class="p">,</span> <span class="s1">'conclusion'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'party'</span><span class="p">,</span> <span class="s1">'vote'</span><span class="p">]]</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">'vote'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">value</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">'vote'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">sql_query</span><span class="p">[[</span><span class="s1">'afstemning'</span><span class="p">,</span> <span class="s1">'titel'</span><span class="p">,</span> <span class="s1">'resume'</span><span class="p">,</span> <span class="s1">'konklusion'</span><span class="p">,</span> <span class="s1">'navn'</span><span class="p">,</span> <span class="s1">'party'</span><span class="p">,</span> <span class="s1">'stemme'</span><span class="p">]]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'stemme'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">value</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'stemme'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 
@@ -428,6 +531,7 @@ window.onload = wrap_img;
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -453,13 +557,13 @@ window.onload = wrap_img;
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>bill</th>
+      <th>afstemning</th>
       <th>titel</th>
       <th>resume</th>
-      <th>conclusion</th>
-      <th>name</th>
+      <th>konklusion</th>
+      <th>navn</th>
       <th>party</th>
-      <th>vote</th>
+      <th>stemme</th>
     </tr>
   </thead>
   <tbody>
@@ -526,6 +630,14 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lad os lige se hvor mange stemmer der er i hver kategori:</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -533,7 +645,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">vote</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">stemme</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -548,7 +660,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Counter({1: 22567, -1: 11244, 3: 20853, 0: 3153})</pre>
+<pre>Counter({1: 35397, -1: 17254, 0: 5166})</pre>
 </div>
 
 </div>
@@ -564,8 +676,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Desværre viser det sig at der er rigtig mange fravær i folketinget (mange 3-taller), og manglende stemmer gør det vanskeligt at foretage en ordentlig PCA, fordi de gængs PCA-algoritmer ikke kan klare NaNs. Da der er mødepligt i folketinget, og alle folketingsmedlemmer SKAL stemme ved alle afstemninger, er det jo en mærkelig sag. Men det viser sig, at folketingets partier benytter sig af såkaldte 'clearingsaftaler', som er private aftaler mellem de forskellige folketingsgrupper. Aftalerne sikrer, at et antal folketingsmedlemmer fra hver partigruppe kan få 'fri' fra afstemningerne i folketingssalen, uden at der derved rokkes ved, hvilke partier som har flertal i Folketinget, eller ved, at der skal være mindst 90 medlemmer til stede, for at Folketinget er beslutningsdygtigt. Clearingaftalerne giver dermed mulighed for, at de politiske aktiviteter ikke går i stå, selv om der er møde og afstemninger i salen. Aftalerne giver plads til, at medlemmerne kan deltage i f.eks. politiske møder eller deltage i andre aktiviteter uden for Christiansborg, uden at afstemningerne i folketingssalen af den grund får et utilsigtet udfald.</p>
 <p>I praksis indgås aftalerne typisk ved, at partigrupperne parvist aftaler for en hel folketingssamling, hvor mange medlemmer hver partigruppe kan 'cleare' hos hinanden - dvs. give lov til at blive væk fra afstemningerne, fordi den politiske modpart også beder et antal medlemmer blive væk. Når et medlem er clearet, stemmer medlemmet ikke i salen den pågældende dag. Hvordan clearingerne fordeles på medlemmer i partigrupperne kan veksle fra dag til dag, alt efter hvem der har behov for at være fri for at deltage i afstemningerne i salen. Det er typisk gruppesekretæren i den enkelte folketingsgruppe, som koordinerer fordelingen af clearingerne og sikrer, at man kan stille med det aftalte antal medlemmer ved eventuelle afstemninger. Det er også typisk gruppesekretæren, som tager kontakt til sin modpart i de andre partigrupper, hvis man pludselig har mandefald på grund af f.eks. sygdom eller lignende, og aftaler de nødvendige yderligere clearinger for en relevant periode. Det typiske mønster for clearingaftalerne er, at regeringspartierne clearer medlemmer med deres umiddelbare modpart. Dermed sikrer man lettest, at den politiske balance er bevaret på trods af clearingerne.</p>
-<p>Efter en samtale med partisekretær Annette Lind (S), som i nuværende folketingssamling en den der sammen med Erling Bonnesen (V) koordinerer clearningsaftalerne for alle partierne, forstå jeg at hvis en person bliver clearet, så vil den person ALTID stemme ihht. partilinjen. Det vil sige at jeg kan skrive en funktion, der erstatter alle fravær med typetallet ("mode") for partiet for den givne afstemning. I tilfælde af at fravær er den hyppigste adfærd, vælger jeg i stedet den anden mest hyppige stemmetype. Og hvis alle medlemmer af et parti har været fraværende ved en afstemning (hvilket hyppigt sker for de grønlandske og færøske stemmer), sætter jeg dem til at være hverken for eller imod, dvs. til 0.</p>
-<p>PS: Hvis et folketingsmedlem er "Uden for folketingsgrupperne", ændrer jeg FRAVÆR til "Hverken for eller imod".</p>
+<p>Efter en samtale med partisekretær Annette Lind (S), som i nuværende folketingssamling en den der sammen med Erling Bonnesen (V) koordinerer clearningsaftalerne for alle partierne, forstå jeg at hvis en person bliver clearet, så vil den person ALTID stemme ihht. partilinjen. Det vil sige at jeg kan skrive en funktion, der erstatter alle fravær med typetallet ("mode") for partiet for den givne afstemning. I tilfælde af at fravær er den hyppigste adfærd, vælger jeg i stedet den anden mest hyppige stemmetype. Og hvis alle medlemmer af et parti har været fraværende ved en afstemning (hvilket hyppigt sker for de grønlandske og færøske stemmer), sætter jeg dem til at være hverken for eller imod, dvs. til 0. Hvis et folketingsmedlem er "Uden for folketingsgrupperne", ændrer jeg FRAVÆR til "Hverken for eller imod" da jeg ikke kunne få bekræftet om løsgængerne også benytter sig af clearningsaftaler.</p>
 
 </div>
 </div>
@@ -573,13 +684,16 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_most_frequent_vote</span><span class="p">(</span><span class="n">bill</span><span class="p">,</span> <span class="n">party</span><span class="p">):</span>
-    <span class="n">df_ap</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">bill</span> <span class="o">==</span> <span class="n">bill</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">party</span> <span class="o">==</span> <span class="n">party</span><span class="p">)]</span>
-    <span class="n">party_votes</span> <span class="o">=</span> <span class="n">df_ap</span><span class="o">.</span><span class="n">vote</span><span class="o">.</span><span class="n">values</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_most_frequent_vote</span><span class="p">(</span><span class="n">afstemning</span><span class="p">,</span> <span class="n">party</span><span class="p">):</span>
+    <span class="n">df_ap</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">afstemning</span> <span class="o">==</span> <span class="n">afstemning</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">party</span> <span class="o">==</span> <span class="n">party</span><span class="p">)]</span>
+    <span class="n">party_votes</span> <span class="o">=</span> <span class="n">df_ap</span><span class="o">.</span><span class="n">stemme</span><span class="o">.</span><span class="n">values</span>
 
     <span class="n">cnt</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">party_votes</span><span class="p">)</span>
     <span class="n">mostfrequent_vote</span> <span class="o">=</span> <span class="n">cnt</span><span class="o">.</span><span class="n">most_common</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -592,19 +706,20 @@ window.onload = wrap_img;
     <span class="k">return</span> <span class="n">mostfrequent_vote</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'vote'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'stemme'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'party'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Uden for folketingsgrupperne'</span><span class="p">:</span>
-            <span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">'vote'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">'stemme'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">ifor_val</span> <span class="o">=</span> <span class="n">get_most_frequent_vote</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'bill'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">'party'</span><span class="p">])</span>
-            <span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">'vote'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ifor_val</span>
-<span class="n">Counter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">vote</span><span class="p">)</span>
+            <span class="n">ifor_val</span> <span class="o">=</span> <span class="n">get_most_frequent_vote</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'afstemning'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">'party'</span><span class="p">])</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">'stemme'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ifor_val</span>
+<span class="n">Counter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">stemme</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -635,14 +750,17 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'party'</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'bill'</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">'vote'</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'navn'</span><span class="p">,</span> <span class="s1">'party'</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'afstemning'</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">'stemme'</span><span class="p">])</span>
 <span class="n">dp</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">dp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">dp</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span> <span class="c1"># get rid of the extra multicolumn "vote"</span>
-<span class="n">dp</span> <span class="o">=</span> <span class="n">dp</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'party'</span><span class="p">])</span> <span class="c1"># make the multiindex [name, party] into two columns</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="n">dp</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="s1">'navn'</span><span class="p">,</span> <span class="s1">'party'</span><span class="p">])</span> <span class="c1"># make the multiindex [name, party] into two columns</span>
 <span class="n">dp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -650,6 +768,7 @@ window.onload = wrap_img;
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -675,7 +794,7 @@ window.onload = wrap_img;
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>name</th>
+      <th>navn</th>
       <th>party</th>
       <th>7165</th>
       <th>7166</th>
@@ -844,11 +963,15 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># compute the color that each MP should be, based on their party. color codes are taken from https://www.dr.dk/om-dr/designmanager/temapakker/folketingsvalg-2019</span>
+<span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">'Enhedslisten'</span> <span class="p">:</span> <span class="s1">'#E6801A'</span><span class="p">,</span>
         <span class="s1">'Socialistisk Folkeparti'</span>  <span class="p">:</span> <span class="s1">'#E07EA8'</span><span class="p">,</span>
         <span class="s1">'Sambandsflokkurin'</span> <span class="p">:</span> <span class="s1">'#41b6c4'</span><span class="p">,</span>
@@ -881,6 +1004,7 @@ window.onload = wrap_img;
 </div>
 </div>
 
+    </details>
 </div>
     
 
@@ -23620,7 +23744,7 @@ afstemnings-id 7485
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Så hvad viser dette? Højre-venstrefløjs-aksen handler om emner som ordentlige arbejdsforhold hos chauffører og vognmænd, om børnebidrag til enlige forsørgere, om afskaffelse af opholdskrav for ret til dagpenge, samt finanslovsting. Altså ting man kunne forvente at der var uenighed om mellem de to fløje, og som venstrefløjen + S fik igennem fordi de har flertal.</p>
 <p>Hvad så med y-aksen, altså bunden vs. toppen i figuren? De mest polariserende afstemninger mellem disse to fløje handler om ting som offentlighedloven (bunden vil have den ændret, toppen ikke vil), mere dyrevelfærd (toppen vil ikke), afskaffelse af EU-privilegier (toppen vil ikke), fjernelse af politikeres frynsegoder (toppen vil ikke), og om imødekommelse af borgerforslag for udbetaling af feriepenge (toppen vil ikke). Blandt de emner som blev gennemført, men bunden stemte imod er nye regler for tvangsanbringelser og diverse økonomiske regler (DF hhv EL er dog typisk langt fra hinanden i disse sager), og igen en modstand mod at udskyde ændring af offentlighedloven.</p>
-<p>Alt i alt kan man sige at bund versus top i Dansk politik handler om dem der vil fjerne privilegier fra en politisk 'elite', og dem der vil beholde dem. 'Eliten' har dog forskellige udtryk. Nogle gange er det den politiske elite vs. resten, nogle gange EU vs. resten af verden, nogle gange mennesker vs. dyr, og nogle gange de rige vs. de ikke-så-rige.</p>
+<p>Alt i alt kan man sige at bund versus top i Dansk politik handler om dem der vil fjerne privilegier fra en politisk 'elite', og dem der vil beholde dem. 'Eliten' har dog forskellige definitioner. Nogle gange er det den politiske elite vs. resten, nogle gange EU vs. resten af verden, nogle gange mennesker vs. dyr, og nogle gange de rige vs. de ikke-så-rige. Den analyse passer overens med hvad der ofte bliver nævnt som den anden store politiske kamp i disse tider: kampen melle insiderne og outsiderne. Kampen mellem establishment og anti-establishment.</p>
 
 </div>
 </div>
