@@ -80,7 +80,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      32 min read
+      43 min read
     
 </span></p>
 
@@ -141,8 +141,9 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Vi har for vane at opdele politik i højre- og venstrefløj. Den historiske årsag er oplysende: det var sådan medlemmerne af den franske nationalforsamling placerede sig efter den franske revolution i 1789. Dem til højre i salen var loyale over for konge og kirke, dem til venstre støttede revolutionen. På den måde undgik man de værste albuehug og <a href="https://www.youtube.com/watch?v=GSXQ1ZgH7NQ">slåskampe</a> mens man skændtes om Frankrings fremtid.</p>
-<p>Hvordan burde de danske medlemmer af folketinget sidde i dag, hvis vi ville minimere risikoen for den slags håndgemæng? Spurgt på en mere nøjagtig måde: hvordan placerer man danske politiker i et lokale så deres politiske uenighed afspejles bedst muligt via deres afstande på en to-dimensionel flade? Det findes faktisk en simpel matematisk metode til at finde ud af det på, som kaldes en 'principal component analyse' (pca), og gevinsten ved en sådan øvelse vil være, at vi kan se om de politiske partier vitterlig stemmer i forhold til det vil kalder en højre- og venstrefløj. Vi vil med andre ord kunne svare på om det virkelig er rigtig, at Enhedslisten og Dansk Folkeparti er længst fra hinanden på en horizontal akse. Vi vil også kunne finde ud af hvordan partierne grupperer sig i forhold til andre ideologiske akser, hvoraf den vigtigste næstefter den horizontale x-akse er den, der spændes ud af en vertikal y-akse, og som repræsenterer vigtige en politiske uenigheder, der ikke fanges af højre-venstre-opdelingen. Vi vil også kunne se, hvad der er for nogle afstemninger, der skiller vandene mest, og en analyse på tværs af årene vil kunne vise, hvordan partierne har bevæget sig i forhold til hinanden.</p>
-<p>Vi kan starte med at se på det danske folketing anno 2020:</p>
+<p>Hvordan burde de danske medlemmer af folketinget sidde i dag, hvis vi ville minimere risikoen for den slags håndgemæng? Spurgt på en anden måde: hvordan placerer man danske politiker i et lokale så deres politiske uenighed afspejles bedst muligt af deres indbyrdes afstande på en to-dimensionel flade?</p>
+<p>Der findes faktisk en simpel matematisk metode til at finde ud af det på. Den kaldes en 'principal component analyse' (pca), og bliver brugt flittigt i maskinlæring og til at lave undersøgende dataanalyse. Gevinsten ved at bruge en pca på folketingets afstemninger er, at vi kan se om de politiske partier vitterlig stemmer i forhold til det vil forestiller os som en højre- og venstrefløj i dansk politik. Vi vil med andre ord kunne svare på om det virkelig er rigtig, at Enhedslisten og Dansk Folkeparti er længst fra hinanden. Vi vil også kunne finde ud af, hvordan partierne grupperer sig i forhold til andre akser, hvor afstandene måske er lige så store. Da der jo er lige så mange politiske synspunkter i folketinget som der er folketingsmedlemmer, er pca'en en rigtig god måde til at reducere de mange uenigheder ned til de to eller tre mest betydningsfulde uenigheds-typer der kendetegner dansk politik. En analyse på tværs af årene vil desuden kunne vise, hvordan partierne har bevæget sig i forhold til hinanden i løbet af årene.</p>
+<p>Vi starter med at se på det danske folketing anno 2020:</p>
 
 </div>
 </div>
@@ -182,7 +183,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Der er ti danske partier og fire oversøiske. Og så er der fire mandater uden for folketingsgrupperne som udgør løsgængerne de Frie Grønne samt Simon Emil Ammitzbøll-Bille. Alle data finder vi via den frit tilgængelige database på oda.ft.dk.</p>
+<p>Der er ti danske partier og fire oversøiske. Og så er der fire (pr. 4. dec 5) mandater uden for folketingsgrupperne som udgør løsgængerne fra de Frie Grønne samt Simon Emil Ammitzbøll-Bille. Alle data finder vi via den frit tilgængelige database på oda.ft.dk.</p>
 
 </div>
 </div>
@@ -433,7 +434,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Som man kan se, er der kun 323 afstemninger og knap 58.000 rækker i dataframen. Coronakrisen i 2020 betød at afstemninger mellem 28. maj 2020 og slut oktober blev foretaget ved håndsoprækkelse og derfor ikke er inkluderet i databasen). Tabellen indeholder heller ikke nogen kolonne, der angiver hvilket parti folketingsmedlemmerne tilhører. Det haves ikke i databasen. Eneste sted jeg kan se, at man kan finde et folketingsmedlems partitilknytning i data er i "biografi"-kolonnen, som består af en masse XML tags. For at ekstrahere partinavnet, der er placeret mellem tagsene "party", bruger jeg bibliotekten xml.etree:</p>
+<p>Som man kan se, er der kun 323 afstemninger og knap 58.000 rækker i dataframen. Coronakrisen i 2020 betød at afstemninger mellem 28. maj 2020 og slut oktober blev foretaget ved håndsoprækkelse og derfor ikke er inkluderet i databasen).</p>
+<p>I det følgende er der lidt data-rengøring, som vi bliver nød til at gøre. Vi kan se, at tabellen ikke indeholder nogen kolonne, der angiver hvilket parti folketingsmedlemmerne tilhører. Det haves ikke i databasen. Eneste sted jeg kan se, at man kan finde et folketingsmedlems partitilknytning i data er i "biografi"-kolonnen, som består af en masse XML tags. For at ekstrahere partinavnet, der er placeret mellem tagsene "party", bruger jeg bibliotekten xml.etree:</p>
 
 </div>
 </div>
@@ -458,7 +460,7 @@ window.onload = wrap_img;
         <span class="n">party</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
         <span class="k">continue</span>
 <span class="n">sql_query</span><span class="p">[</span><span class="s1">'party'</span><span class="p">]</span> <span class="o">=</span> <span class="n">party</span>
-<span class="n">sql_query</span><span class="o">.</span><span class="n">party</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="c1">#sql_query.party.unique()</span>
 </pre></div>
 
     </div>
@@ -466,27 +468,6 @@ window.onload = wrap_img;
 </div>
 
     </details>
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array(['Venstre', 'Socialdemokratiet', 'Dansk Folkeparti',
-       'Det Konservative Folkeparti', 'Enhedslisten', 'Liberal Alliance',
-       'Radikale Venstre', 'Socialistisk Folkeparti', 'Nye Borgerlige',
-       'Uden for folketingsgrupperne', 'Alternativet',
-       'Sambandsflokkurin', 'Javnaðarflokkurin', 'Inuit Ataqatigiit',
-       'Siumut'], dtype=object)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -746,7 +727,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For at få data i det rigtige format, bliver vi nød til at reorganisere tabellen således at rækkerne viser de enkelte folketingsmedlemmer, søjlerne de enkelte afstemninger, og selve cellerne indeholder så stemmerne. Vi kan bruge pivot-funtionen i python:</p>
+<p>For at få data i det rigtige format, bliver vi dernæst nød til at reorganisere tabellen således at rækkerne viser de enkelte folketingsmedlemmer, søjlerne de enkelte afstemninger, og selve cellerne indeholder så stemmerne. Vi kan bruge pivot-funtionen i python:</p>
 
 </div>
 </div>
@@ -956,6 +937,14 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dernæst giver vi partierne en farve, så vi kan kende forskel på dem på det resulterende plot:</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1007,7 +996,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>De originale data har lige så mange dimensioner som afstemninger, men pca'en reducerer dem ned til tre eller endda kun to dimensioner. De to dimensioner er så til gengæld dem, der viser størst varians i data, og kan derfor bruges som abstrakte indikatorer for hvordan folketingsmedlemmerne adskiller sig fra hinanden. Dimensionerne er desuden ortogonale på hinanden, hvilket betyder at de er uafhængige af hinanden, og enhver korrelation mellem afstemningerne transformeres til linæere ukorrelerede variable der kaldes 'komponenter'. PCA er altså en "usuperviseret" metode, der beregnet afstanden mellem partierne som en kompleks blanding af, hvordan der blev stemt i de 323 afstemninger der blev registreret i folketingssamlingen 2019-2020.</p>
+<p>De originale data har lige så mange dimensioner som afstemninger, men pca'en reducerer dem ned til tre eller endda kun to dimensioner. De to/tre dimensioner er så til gengæld dem, der viser størst varians i data, og kan derfor bruges som abstrakte indikatorer for hvor meget folketingsmedlemmerne er uenige med hinanden. Dimensionerne er desuden ortogonale på hinanden, hvilket betyder at de er uafhængige af hinanden. Enhver korrelation mellem afstemningerne transformeres således til linæere ukorrelerede variable der kaldes 'komponenter'. PCA er altså en "usuperviseret" metode, der beregnet afstanden mellem partierne som en kompleks blanding af, hvordan der blev stemt i de 323 afstemninger der blev registreret i folketingssamlingen 2019-2020.</p>
 <p>For at dimensions-reduktionen kan give et nogenlunde retvisende billede af forskellene er det dog vigtigt at de 2-3 principale komponenter fanger størstedelen af variansen i data. Forneden vælger vi antallet af komponenter til at være 3, og kalder den første komponent for xvector, og den anden komponent for yvector.</p>
 
 </div>
@@ -1162,7 +1151,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>x-aksen giver et overraskende godt billede af hvad vi normalt forestiller os som den ideologiske højre-venstre akse i politik. Enhedslisten ligger yderst til venstre, og Dansk Folkeparti ligger yderst til højre (i hvert fald i årene før folketingsvalget i efteråret 2018), og i midten øverst ligger Socialdemokratiet. Der er dog et par overraskelser. De Radikale venstre ligger klart til venstre for Socialdemokratiet, ja faktisk tættere på SF end på S. De mest 'højreorienterede' partier i dansk politik er hverken Dansk Folkeparti eller de Nye Borgerlige. Det er Venstre og Det Konservative Folkeparti, to partier der i øvrigt er stort set uskelnelige i deres stemmerafgivelser. De oversøiske mandater roder rundt omkring (0,0), hvilket primært er en konsekvens af at de som regel afholder sig fra at stemme eller stemmer 'hverken for eller imod'. Som eksempel kan vi kigge på Uffe Elbæks stemmeadfærd:</p>
+<p>x-aksen giver et ganske godt billede af hvad vi normalt forestiller os som den ideologiske højre-venstre akse i dansk politik. Enhedslisten ligger yderst til venstre, og Dansk Folkeparti ligger yderst til højre (i hvert fald i årene før folketingsvalget i efteråret 2018), og i midten øverst ligger Socialdemokratiet. Der er dog et par overraskelser. De Radikale venstre ligger klart til venstre for Socialdemokratiet, ja faktisk tættere på SF end på S. De mest 'højreorienterede' partier i dansk politik er hverken Dansk Folkeparti eller de Nye Borgerlige. Det er Venstre og Det Konservative Folkeparti, to partier der i øvrigt er stort set uskelnelige i deres stemmerafgivelser. De oversøiske mandater roder i midten, hvilket primært er en konsekvens af at de ofte afholder sig fra at stemme eller stemmer 'hverken for eller imod'.</p>
+<p>Som eksempel kan vi kigge på løsgængerne stemmeadfærd:</p>
 
 </div>
 </div>
@@ -1174,7 +1164,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Counter</span><span class="p">(</span><span class="n">sql_query</span><span class="p">[</span><span class="n">sql_query</span><span class="o">.</span><span class="n">navn</span> <span class="o">==</span> <span class="s1">'Uffe Elbæk'</span><span class="p">]</span><span class="o">.</span><span class="n">stemme</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">lg</span> <span class="ow">in</span> <span class="n">dp</span><span class="p">[</span><span class="n">dp</span><span class="o">.</span><span class="n">party</span> <span class="o">==</span> <span class="s1">'Uden for folketingsgrupperne'</span><span class="p">]</span><span class="o">.</span><span class="n">navn</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lg</span><span class="p">,</span> <span class="n">Counter</span><span class="p">(</span><span class="n">sql_query</span><span class="p">[</span><span class="n">sql_query</span><span class="o">.</span><span class="n">navn</span> <span class="o">==</span> <span class="n">lg</span><span class="p">]</span><span class="o">.</span><span class="n">stemme</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -1186,12 +1177,13 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Counter({3: 229, 1: 44, 2: 22, 4: 28})</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Sikandar Siddique Counter({1: 176, 2: 78, 3: 59, 4: 10})
+Simon Emil Ammitzbøll-Bille Counter({3: 272, 4: 38, 1: 11, 2: 2})
+Susanne Zimmer Counter({1: 146, 3: 113, 2: 46, 4: 18})
+Uffe Elbæk Counter({3: 229, 1: 44, 4: 28, 2: 22})
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -1203,7 +1195,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>som viser at Uffe har været fraværende fra 71% af alle registrerede afstemninger i folketingssalen. Da der er møde- og stemmepligt, og Uffe Elbæk desuden næppe har lavet clearingsaftaler, er det jo rimeligt kritisabelt.</p>
+<p>som viser at Uffe Elbæk og Simon Emil Ammitzbøll-Bille været fraværende ved hhv 71% og 84% af alle registrerede afstemninger i folketingssalen (da der er møde- og stemmepligt, og de to næppe har lavet clearingsaftaler, er det måske en sag der er værd at undersøge nærmere). Sikandar Siddique derimod deltager flittigt i afstemningerne.</p>
 
 </div>
 </div>
@@ -1263,6 +1255,14 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="/etsyvni/images/copied_from_nb/plots/ft151_heatmap_1.png" alt="heat map for første komponent"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nu det samme for den anden komponent som udspænder y-aksen.</p>
 
 </div>
 </div>
@@ -1591,6 +1591,14 @@ afstemnings-id 7278
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nu vil jeg kigge på anden komponent. Denne gang tager jeg 10 afstemninger fra hver retning, for bedre at forstå hvad aksen viser.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1598,8 +1606,10 @@ afstemnings-id 7278
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Her de mest polariserende afstemninger som de grønne (dvs. bunden) stemte for og tabte:</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">lov</span> <span class="ow">in</span> <span class="n">bills</span><span class="p">[</span><span class="n">iy_high</span><span class="p">]:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iyhigh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">yvector</span><span class="p">)[</span><span class="o">-</span><span class="mi">10</span><span class="p">:]</span> <span class="c1"># returns an array of sorted indexes of the components</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Her de mest polariserende afstemninger som de grønne (dvs. bunden) stemte for og tabte:</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">lov</span> <span class="ow">in</span> <span class="n">bills</span><span class="p">[</span><span class="n">iyhigh</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'afstemnings-id'</span><span class="p">,</span> <span class="n">lov</span><span class="p">)</span>
     <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">afstemning</span> <span class="o">==</span> <span class="n">lov</span><span class="p">]</span><span class="o">.</span><span class="n">titel</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">afstemning</span> <span class="o">==</span> <span class="n">lov</span><span class="p">]</span><span class="o">.</span><span class="n">konklusion</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
@@ -1618,6 +1628,153 @@ afstemnings-id 7278
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Her de mest polariserende afstemninger som de grønne (dvs. bunden) stemte for og tabte:
+
+afstemnings-id 7187
+('Forslag til lov om ændring af lov om social pension, lov om højeste, '
+ 'mellemste, forhøjet almindelig og almindelig førtidspension m.v., lov om '
+ 'aktiv socialpolitik, lov om individuel boligstøtte og ligningsloven. '
+ '(Lettelse af grænsehindring ved flytning mellem rigsdelene m.v.).')
+('Forslaget blev forkastet. For stemte 22 (SF, EL, ALT og NB), imod stemte 89 '
+ '(S, V, DF, RV, KF og LA), hverken for eller imod stemte 0.')
+('Med forslaget udmøntes dele af B 34 (folketingsåret 2013-14) om '
+ 'iværksættelse af en systematisk indsats mod grænsehindringer inden for '
+ 'rigsfællesskabets grænser for den del af lovforslaget, der vedrører '
+ 'førtidspension.\n'
+ '\n'
+ 'Med forslaget foreslås det at bemyndige beskæftigelsesministeren til at '
+ 'skabe mulighed for, at man hurtigere kan udveksle sagsoplysninger mellem '
+ 'rigsdelene. Borgere får ret til fortsat at modtage førtidspension i op til '
+ '12 måneder efter fraflytning, og borgere, der fremadrettet automatisk vil '
+ 'overgå fra højeste førtidspension på Færøerne og i Grønland til dansk '
+ 'førtidspension, vil automatisk overgå fra dansk førtidspension til højeste '
+ 'førtidspension på Færøerne og i Grønland, når de flytter mellem rigsdelene.\n'
+ '\n'
+ 'Med forslaget foreslås det ligeledes, at der bl.a. indføres mulighed for at '
+ 'yde supplerende hjælp efter lov om aktiv socialpolitik til personer, der '
+ 'modtager førtidspension fra Færøerne eller Grønland efter flytning til '
+ 'Danmark, samt at sidestille færøsk og grønlandsk førtidspension ved bopæl i '
+ 'Danmark med dansk førtidspension i forhold til ret til boligstøtte.\n'
+ '\n'
+ 'Det foreslås, at lovforslaget træder i kraft 1. januar 2020.\n'
+ '\n')
+
+
+
+afstemnings-id 7184
+('Forslag til lov om ændring af lov om social pension, lov om højeste, '
+ 'mellemste, forhøjet almindelig og almindelig førtidspension m.v., lov om '
+ 'aktiv socialpolitik, lov om individuel boligstøtte og ligningsloven. '
+ '(Lettelse af grænsehindring ved flytning mellem rigsdelene m.v.).')
+('Forslaget blev forkastet. For stemte 22 (SF, EL, ALT og NB), imod stemte 90 '
+ '(S, V, DF, RV, KF og LA), hverken for eller imod stemte 0.')
+('Med forslaget udmøntes dele af B 34 (folketingsåret 2013-14) om '
+ 'iværksættelse af en systematisk indsats mod grænsehindringer inden for '
+ 'rigsfællesskabets grænser for den del af lovforslaget, der vedrører '
+ 'førtidspension.\n'
+ '\n'
+ 'Med forslaget foreslås det at bemyndige beskæftigelsesministeren til at '
+ 'skabe mulighed for, at man hurtigere kan udveksle sagsoplysninger mellem '
+ 'rigsdelene. Borgere får ret til fortsat at modtage førtidspension i op til '
+ '12 måneder efter fraflytning, og borgere, der fremadrettet automatisk vil '
+ 'overgå fra højeste førtidspension på Færøerne og i Grønland til dansk '
+ 'førtidspension, vil automatisk overgå fra dansk førtidspension til højeste '
+ 'førtidspension på Færøerne og i Grønland, når de flytter mellem rigsdelene.\n'
+ '\n'
+ 'Med forslaget foreslås det ligeledes, at der bl.a. indføres mulighed for at '
+ 'yde supplerende hjælp efter lov om aktiv socialpolitik til personer, der '
+ 'modtager førtidspension fra Færøerne eller Grønland efter flytning til '
+ 'Danmark, samt at sidestille færøsk og grønlandsk førtidspension ved bopæl i '
+ 'Danmark med dansk førtidspension i forhold til ret til boligstøtte.\n'
+ '\n'
+ 'Det foreslås, at lovforslaget træder i kraft 1. januar 2020.\n'
+ '\n')
+
+
+
+afstemnings-id 7183
+('Forslag til lov om ændring af lov om social pension, lov om højeste, '
+ 'mellemste, forhøjet almindelig og almindelig førtidspension m.v., lov om '
+ 'aktiv socialpolitik, lov om individuel boligstøtte og ligningsloven. '
+ '(Lettelse af grænsehindring ved flytning mellem rigsdelene m.v.).')
+('Forslaget blev forkastet. For stemte 22 (SF, EL, ALT og NB), imod stemte 89 '
+ '(S, V, DF, RV, KF og LA), hverken for eller imod stemte 0.')
+('Med forslaget udmøntes dele af B 34 (folketingsåret 2013-14) om '
+ 'iværksættelse af en systematisk indsats mod grænsehindringer inden for '
+ 'rigsfællesskabets grænser for den del af lovforslaget, der vedrører '
+ 'førtidspension.\n'
+ '\n'
+ 'Med forslaget foreslås det at bemyndige beskæftigelsesministeren til at '
+ 'skabe mulighed for, at man hurtigere kan udveksle sagsoplysninger mellem '
+ 'rigsdelene. Borgere får ret til fortsat at modtage førtidspension i op til '
+ '12 måneder efter fraflytning, og borgere, der fremadrettet automatisk vil '
+ 'overgå fra højeste førtidspension på Færøerne og i Grønland til dansk '
+ 'førtidspension, vil automatisk overgå fra dansk førtidspension til højeste '
+ 'førtidspension på Færøerne og i Grønland, når de flytter mellem rigsdelene.\n'
+ '\n'
+ 'Med forslaget foreslås det ligeledes, at der bl.a. indføres mulighed for at '
+ 'yde supplerende hjælp efter lov om aktiv socialpolitik til personer, der '
+ 'modtager førtidspension fra Færøerne eller Grønland efter flytning til '
+ 'Danmark, samt at sidestille færøsk og grønlandsk førtidspension ved bopæl i '
+ 'Danmark med dansk førtidspension i forhold til ret til boligstøtte.\n'
+ '\n'
+ 'Det foreslås, at lovforslaget træder i kraft 1. januar 2020.\n'
+ '\n')
+
+
+
+afstemnings-id 7474
+('Forslag til folketingsbeslutning om fjernelse af gensidig forsørgerpligt for '
+ 'alle (borgerforslag).')
+('Forslaget blev forkastet. For stemte 8 (EL, ALT og UFG), imod stemte 66 (S, '
+ 'V, RV, KF og LA), hverken for eller imod stemte 19 (DF, SF, NB).')
+('Med beslutningsforslaget pålægger Folketinget regeringen at fjerne den '
+ 'gensidige forsørgerpligt for kontanthjælpsmodtagere, førtidspensionister, '
+ 'folkepensionister og andre ydelser, hvor den gensidige forsørgerpligt er '
+ 'gældende.\n'
+ '\n'
+ 'Der er tale om et borgerforslag, som inden for den fastsatte frist har '
+ 'opnået det antal støttetilkendegivelser fra borgere, som kræves for at få '
+ 'forslaget fremsat og behandlet som beslutningsforslag i Folketinget. \n'
+ '\n'
+ 'Fremsættelsen er alene udtryk for, at forslagsstillerne på vegne af de '
+ 'partier, som støtter borgerforslagsordningen, påtager sig at opfylde en '
+ 'nødvendig betingelse for, at borgerforslaget kan blive behandlet i '
+ 'Folketinget i overensstemmelse med intentionerne bag ordningen.\n')
+
+
+
+afstemnings-id 7238
+('Forslag til lov om ændring af lov om inddrivelse af gæld til det offentlige, '
+ 'skatteindberetningsloven og lov om en aktiv beskæftigelsesindsats. '
+ '(Kommunalt ejede forsyningsvirksomheders valg af privat inddrivelse, '
+ 'restanceinddrivelsesmyndighedens overvæltning af omkostninger på skyldner '
+ 'ved brug af privat inkassator til inddrivelse i udlandet og ophævelse af '
+ 'fradragsret for renter af fordringer under inddrivelse samt forældelse m.v. '
+ 'i genoptagelsessager på inddrivelsesområdet m.v.).')
+('Forslaget blev forkastet. For stemte 29 (DF, SF, KF og NB), imod stemte 76 '
+ '(S, V, RV, Signe Munk (SF), Karsten Hønge (SF), ALT og LA), hverken for '
+ 'eller imod stemte 8 (EL).')
+('Med lovforslaget forslås det at give kommunalt ejede forsyningsvirksomheder '
+ 'mulighed for at vælge privat inddrivelse og dermed fravælge offentlig '
+ 'inddrivelse, og at forsyningsselskaberne får mulighed for at overvælte '
+ 'omkostningerne til den private inkasso på skyldneren. Derudover foreslås det '
+ 'at fastsætte regler om, at Gældsstyrelsen ved antagelse af en privat '
+ 'inkassator til at bistå med at inddrive gæld i udlandet ligeledes skal have '
+ 'mulighed for at pålægge skyldneren omkostningerne. \n'
+ '\n'
+ 'Lovforslaget indebærer desuden forslag om at ophæve fradragsretten for '
+ 'inddrivelsesrenter, der påløber gæld, der er under inddrivelse, og at '
+ 'udskyde forældelsen af eventuelle tilbagebetalingskrav.\n'
+ '\n'
+ 'Derudover foreslås det, at Gældsstyrelsen ikke gør krav på tilbagebetaling '
+ 'fra ikkestatslige fordringshavere, der har modtaget uretmæssigt inddrevne '
+ 'beløb. \n'
+ '\n'
+ 'Endelig foreslås det, at ikkestatslige fordringshavere, der til '
+ 'Gældsstyrelsen har tilbagebetalt uretmæssigt inddrevne beløb, får beløbet '
+ 'tilbagebetalt.\n')
+
+
 
 afstemnings-id 7393
 'Forslag til lov om dyrevelfærd (dyrevelfærdsloven).'
@@ -1716,8 +1873,9 @@ afstemnings-id 7477
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Her de mest polariserende afstemninger som de lilla (dvs. toppen) stemte for og vandt:</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">lov</span> <span class="ow">in</span> <span class="n">bills</span><span class="p">[</span><span class="n">iy_low</span><span class="p">]:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iylow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">yvector</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Her de mest polariserende afstemninger som de lilla (dvs. toppen) stemte for og vandt:</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">lov</span> <span class="ow">in</span> <span class="n">bills</span><span class="p">[</span><span class="n">iylow</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'afstemnings-id'</span><span class="p">,</span> <span class="n">lov</span><span class="p">)</span>
     <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">afstemning</span> <span class="o">==</span> <span class="n">lov</span><span class="p">]</span><span class="o">.</span><span class="n">titel</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">afstemning</span> <span class="o">==</span> <span class="n">lov</span><span class="p">]</span><span class="o">.</span><span class="n">konklusion</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
@@ -1812,6 +1970,79 @@ afstemnings-id 7485
 
 
 
+afstemnings-id 7342
+('Forslag til lov om ændring af sømandsbeskatningsloven, \n'
+ 'tonnageskatteloven og forskellige andre love. (Tilpasning af DIS-ordningen '
+ 'og tonnageskatteordningen til EU-retten på baggrund af krav fra Kommissionen '
+ 'm.v.).')
+('Forslaget blev vedtaget. For stemte 72 (S, V, RV, KF, ALT, NB og LA), imod '
+ 'stemte 20 (DF, EL og Pernille Vermund (NB)), hverken for eller imod stemte 9 '
+ '(SF).')
+('Med lovforslaget foreslås tilpasninger af DIS-ordningen og '
+ 'tonnageskatteordningen til EU-retten på baggrund af krav fra Kommissionen.')
+
+
+
+afstemnings-id 7418
+('Folketinget konstaterer, at det er af afgørende betydning, at der stilles '
+ 'fornuftige og høje krav til ansøgere om dansk indfødsret, herunder at de '
+ 'taler det danske sprog og har kendskab til danske samfundsforhold, dansk '
+ 'kultur og historie. Det følger af grundloven, at det er Folketingets '
+ 'kompetence at tildele dansk indfødsret. Det følger videre af en dom fra '
+ 'Højesteret den 13. september 2013, at Danmark har påtaget sig en række '
+ 'folkeretlige pligter, som forudsættes efterlevet.')
+('Forslaget blev vedtaget. For stemte 67 (S, V, KF og LA), imod stemte 43 (DF, '
+ 'RV, SF, EL, ALT og NB), hverken for eller imod stemte 0.')
+''
+
+
+
+afstemnings-id 7335
+('Forslag til lov om ændring af lov om inddrivelse af gæld til det offentlige '
+ 'og skatteindberetningsloven. (Ophævelse af fradragsret for renter af '
+ 'fordringer under inddrivelse).')
+('Forslaget blev vedtaget. For stemte 94 (S, V, DF, RV, KF, ALT og LA), imod '
+ 'stemte 20 (SF, EL og NB), hverken for eller imod stemte 0.')
+('Med lovforslaget foreslås det at ophæve fradragsretten for renter af '
+ 'fordringer under inddrivelse.')
+
+
+
+afstemnings-id 7333
+('Forslag til lov om ændring af skatteindberetningsloven, skattekontrolloven, '
+ 'kildeskatteloven, ligningsloven og pensionsbeskatningsloven. (Gennemførelse '
+ 'af direktiv om obligatorisk automatisk udveksling af oplysninger på '
+ 'beskatningsområdet i forbindelse med indberetningspligtige '
+ 'grænseoverskridende ordninger).')
+('Forslaget blev vedtaget. For stemte 88 (S, V, RV, SF, EL og ALT), imod '
+ 'stemte 25 (DF, KF, NB og LA), hverken for eller imod stemte 0.')
+('Lovforslaget går ud på, at udbydere af potentielt aggressive '
+ 'grænseoverskridende skatteplanlægningsordninger pålægges at indberette '
+ 'oplysninger herom til Skatteforvaltningen, med henblik på at '
+ 'Skatteforvaltningen vil kunne underrette andre EU-medlemsstaters '
+ 'skattemyndigheder om sådanne ordninger.\n'
+ '\n'
+ 'Der skal desuden skabes hjemmel til, at skatteministeren kan fastsætte '
+ 'regler ved bekendtgørelse, der gennemfører Rådets direktiv 2018/822/EU af '
+ '25. maj 2018 om ændring af direktiv 2011/16/EU, hvad angår obligatorisk '
+ 'automatisk udveksling af oplysninger på beskatningsområdet i forbindelse med '
+ 'indberetningspligtige grænseoverskridende ordninger (DAC6), og at '
+ 'skatteministeren vil kunne gennemføre tilsvarende aftaler med lande uden for '
+ 'EU.\n')
+
+
+
+afstemnings-id 7190
+('Folketinget mener, at fremmedkrigere, der deltager i en forræderisk kamp mod '
+ 'danske værdier, bør tage konsekvensen af deres valg og blive væk. '
+ 'Folketinget opfordrer regeringen til at arbejde for, at den, der desværre '
+ 'vender tilbage, skal straffes hårdt og konsekvent.')
+('Forslaget blev vedtaget. For stemte 52 (S, V og LA), imod stemte 50 (DF, RV, '
+ 'SF, EL, KF, ALT og NB), hverken for eller imod stemte 0.')
+''
+
+
+
 </pre>
 </div>
 </div>
@@ -1826,8 +2057,8 @@ afstemnings-id 7485
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Så hvad viser dette? Højre-venstrefløjs-aksen handler om emner som ordentlige arbejdsforhold hos chauffører og vognmænd, om børnebidrag til enlige forsørgere, om afskaffelse af opholdskrav for ret til dagpenge, samt finanslovsting. Altså ting man kunne forvente at der var uenighed om mellem de to fløje, og som venstrefløjen + S fik igennem fordi de har flertal.</p>
-<p>Hvad så med y-aksen, altså bunden vs. toppen i figuren? De mest polariserende afstemninger mellem disse to fløje handler om ting som offentlighedloven (bunden vil have den ændret, toppen ikke vil), mere dyrevelfærd (toppen vil ikke), afskaffelse af EU-privilegier (toppen vil ikke), fjernelse af politikeres frynsegoder (toppen vil ikke), og om imødekommelse af borgerforslag for udbetaling af feriepenge (toppen vil ikke). Blandt de emner som blev gennemført, men bunden stemte imod er nye regler for tvangsanbringelser og diverse økonomiske regler (DF hhv EL er dog typisk langt fra hinanden i disse sager), og igen en modstand mod at udskyde ændring af offentlighedloven.</p>
-<p>Alt i alt kan man sige at bund versus top i Dansk politik handler om dem der vil fjerne privilegier fra en bestemt establishment, og dem der vil beholde privilegierne. Dette establishment, eller som jeg foretrækker at kalde det med <a href="https://aciddc.wordpress.com/2017/05/05/larry-summers-wants-to-know-are-you-an-insider-or-an-outsider/">Larry Summers ord</a>, disse 'insiders', har dog forskellige udtryk. Nogle gange er insiderne den politiske elite vs. resten, nogle gange er det EU vs. resten af verden, nogle gange er det mennesker vs. dyr, og nogle gange de rige vs. de ikke-så-rige.</p>
+<p>Hvad så med y-aksen, altså bunden vs. toppen i figuren? De mest polariserende afstemninger mellem disse to fløje handler om ting som offentlighedloven (bunden vil have den ændret, toppen ikke vil), mere dyrevelfærd (toppen vil ikke), afskaffelse af EU-privilegier (toppen vil ikke), ligeberettigelse til social pension (toppen vil ikke), fjernelse af politikeres frynsegoder (toppen vil ikke), og om imødekommelse af borgerforslag (toppen vil ikke). Blandt de emner som blev gennemført, men bunden stemte imod er nye regler for tvangsanbringelser, indvandrere, og diverse økonomiske regler (DF hhv EL er dog typisk langt fra hinanden i disse sager), og igen en modstand mod at udskyde ændring af offentlighedloven.</p>
+<p>Alt i alt kan man måske sige at bund versus top i Dansk politik handler om dem der vil fjerne privilegier fra et bestemt 'establishment', og dem der vil beholde privilegierne. Der er dog tale om forskellige typer af 'establishment'. Nogle gange er det den politiske elite vs. resten, nogle gange er det EU vs. resten af verden, nogle gange er det mennesker vs. dyr, og nogle gange er det de rige vs. de ikke-så-rige. Måske kan man med <a href="https://aciddc.wordpress.com/2017/05/05/larry-summers-wants-to-know-are-you-an-insider-or-an-outsider/">Larry Summers ord</a> sige, at den næst-vigtigste skillelinje i dansk politik, efter højre-venstre opdelingen, er den der adskiller 'insiders' fra 'outsiders'.</p>
 
 </div>
 </div>
