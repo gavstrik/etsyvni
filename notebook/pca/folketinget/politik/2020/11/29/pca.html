@@ -80,7 +80,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      43 min read
+      45 min read
     
 </span></p>
 
@@ -206,6 +206,7 @@ window.onload = wrap_img;
 <span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">ET</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">adjustText</span> <span class="kn">import</span> <span class="n">adjust_text</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">'white'</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">'notebook'</span><span class="p">)</span>
@@ -1025,9 +1026,11 @@ window.onload = wrap_img;
 <span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
 <span class="n">xvector</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
 <span class="n">yvector</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">zvector</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 
 <span class="n">xs</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">dat</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span> 
 <span class="n">ys</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">dat</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">zs</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">dat</span><span class="p">)[:,</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_</span><span class="p">,</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
 </pre></div>
 
@@ -1059,7 +1062,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Som det kan ses fanger den første komponent 44,4 procent af variansen i data. Det er ikke så meget som håbet (i de tidligere folketingsår kommer den typisk op på 60-70%), men skyldes nok det specielle Corona-år vi har haft. Vi må leve med det, og kan nu plotte resultatet:</p>
+<p>Som det kan ses fanger den første komponent 44,4 procent af variansen i data. Det er ikke så meget som håbet (i de tidligere folketingsår kommer den typisk op på 60-70%), men skyldes nok det specielle Corona-år vi har haft. Vi må leve med det, og kan nu plotte resultatet for de to første komponenter:</p>
 
 </div>
 </div>
@@ -1074,8 +1077,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">adjustText</span> <span class="kn">import</span> <span class="n">adjust_text</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
 <span class="n">ix_high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">xvector</span><span class="p">)[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="c1"># returns an array of sorted indexes of the components</span>
 <span class="n">ix_low</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">xvector</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span> 
@@ -1155,7 +1157,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>x-aksen giver et ganske godt billede af hvad vi normalt forestiller os som den ideologiske højre-venstre akse i dansk politik. Enhedslisten ligger yderst til venstre, og Dansk Folkeparti ligger yderst til højre (i hvert fald i årene før folketingsvalget i efteråret 2018), og i midten øverst ligger Socialdemokratiet. Der er dog et par overraskelser. De Radikale venstre ligger klart til venstre for Socialdemokratiet, ja faktisk tættere på SF end på S. De mest 'højreorienterede' partier i dansk politik er hverken Dansk Folkeparti eller de Nye Borgerlige. Det er Venstre og Det Konservative Folkeparti, to partier der i øvrigt er stort set uskelnelige i deres stemmerafgivelser. De oversøiske mandater roder i midten, hvilket primært er en konsekvens af at de ofte afholder sig fra at stemme eller stemmer 'hverken for eller imod'.</p>
+<p>x-aksen giver et ganske godt billede af hvad vi normalt forestiller os som den ideologiske højre-venstre akse i dansk politik. Enhedslisten ligger yderst til venstre, og Dansk Folkeparti ligger yderst til højre (i hvert fald i årene før folketingsvalget i efteråret 2018), og i midten øverst ligger Socialdemokratiet. Der er dog et par overraskelser. De Radikale venstre ligger klart til venstre for Socialdemokratiet, ja faktisk tættere på SF end på S. De mest 'højreorienterede' partier i dansk politik er hverken Dansk Folkeparti eller de Nye Borgerlige. Det er Venstre og Det Konservative Folkeparti, to partier der i øvrigt er stort set uskelnelige i deres stemmerafgivelser. De oversøiske mandater roder rundt i midten, hvilket primært er en konsekvens af at de ofte afholder sig fra at stemme eller stemmer 'hverken for eller imod'.</p>
 <p>Som eksempel kan vi kigge på løsgængerne stemmeadfærd:</p>
 
 </div>
@@ -1199,7 +1201,7 @@ Uffe Elbæk Counter({3: 229, 1: 44, 4: 28, 2: 22})
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>som viser at Uffe Elbæk og Simon Emil Ammitzbøll-Bille været fraværende ved hhv 71% og 84% af alle registrerede afstemninger i folketingssalen (da der er møde- og stemmepligt, og de to næppe har lavet clearingsaftaler, er det måske en sag der er værd at undersøge nærmere). Sikandar Siddique derimod deltager flittigt i afstemningerne.</p>
+<p>som viser at Uffe Elbæk og Simon Emil Ammitzbøll-Bille (begge i midten af x-aksen) været fraværende ved hhv 71% og 84% af alle registrerede afstemninger i folketingssalen (da der er møde- og stemmepligt, og de to næppe har lavet clearingsaftaler, er det måske en sag der er værd at undersøge nærmere). Sikandar Siddique (på venstre side af x-aksen tæt på SF) derimod deltager flittigt i afstemningerne.</p>
 
 </div>
 </div>
@@ -1316,27 +1318,6 @@ Uffe Elbæk Counter({3: 229, 1: 44, 4: 28, 2: 22})
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<details class="description">
-      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
-        <p></p>
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pprint</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-    </details>
-</div>
-    
-
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2082,7 +2063,118 @@ afstemnings-id 7190
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Så hvad viser dette? Højre-venstrefløjs-aksen handler om emner som ordentlige arbejdsforhold hos chauffører og vognmænd, om børnebidrag til enlige forsørgere, om afskaffelse af opholdskrav for ret til dagpenge, samt finanslovsting. Altså ting man kunne forvente at der var uenighed om mellem de to fløje, og som venstrefløjen + S fik igennem fordi de har flertal.</p>
 <p>Hvad så med y-aksen, altså bunden vs. toppen i figuren? De mest polariserende afstemninger mellem disse to fløje handler om ting som offentlighedloven (bunden vil have den ændret, toppen ikke vil), mere dyrevelfærd (toppen vil ikke), afskaffelse af EU-privilegier (toppen vil ikke), ligeberettigelse til social pension (toppen vil ikke), fjernelse af politikeres frynsegoder (toppen vil ikke), og om imødekommelse af borgerforslag (toppen vil ikke). Blandt de emner som blev gennemført, men bunden stemte imod er nye regler for tvangsanbringelser, indvandrere, og diverse økonomiske regler (DF hhv EL er dog typisk langt fra hinanden i disse sager), og igen en modstand mod at udskyde ændring af offentlighedloven.</p>
-<p>Alt i alt kan man måske sige at bund versus top i Dansk politik handler om dem der vil fjerne privilegier fra et bestemt 'establishment', og dem der vil beholde privilegierne. Der er dog tale om forskellige typer af 'establishment'. Nogle gange er det den politiske elite vs. resten, nogle gange er det EU vs. resten af verden, nogle gange er det mennesker vs. dyr, og nogle gange er det de rige vs. de ikke-så-rige. Måske kan man med <a href="https://aciddc.wordpress.com/2017/05/05/larry-summers-wants-to-know-are-you-an-insider-or-an-outsider/">Larry Summers ord</a> sige, at den næst-vigtigste skillelinje i dansk politik, efter højre-venstre opdelingen, er den der adskiller 'insiders' fra 'outsiders'. Outsiders er de frie mennesker, der råber op og siger hvad de har lyst til, men ikke bestemmer noget som helst. Insiders er dem der kun siger det, der er accepteret at sige som insider, og de lytter ikke til outsiderne (som de kalder ekstremister). Til gengæld får de lov til at tage alle de vigtige beslutninger.</p>
+<p>Alt i alt kan man måske sige at bund versus top i Dansk politik handler om dem der vil fjerne privilegier fra et bestemt 'establishment', og dem der vil beholde privilegierne. Der er dog tale om forskellige typer af 'establishment'. Nogle gange er det den politiske elite vs. resten, nogle gange er det EU vs. resten af verden, nogle gange er det mennesker vs. dyr, og nogle gange er det de rige vs. de ikke-så-rige. Måske kan man med <a href="https://aciddc.wordpress.com/2017/05/05/larry-summers-wants-to-know-are-you-an-insider-or-an-outsider/">Larry Summers ord</a> sige, at den næst-vigtigste skillelinje i dansk politik, efter højre-venstre opdelingen, er den der adskiller 'insiders' fra 'outsiders'. Outsiders er de frie mennesker, der råber op og siger hvad de har lyst til, men ikke bestemmer noget som helst. Insiders er dem der kun siger det, der er accepteret at sige som insider, og de lytter ikke til outsiderne (som de kalder ekstremister). Til gengæld får insiderne lov til at tage alle de vigtige beslutninger.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Vi kan for helheden skyld også lige tage et kig på den tredje komponent i pca'en:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ix_high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">xvector</span><span class="p">)[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="c1"># returns an array of sorted indexes of the components</span>
+<span class="n">ix_low</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">xvector</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span> 
+<span class="n">iz_high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">zvector</span><span class="p">)[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="c1"># returns an array of sorted indexes of the components</span>
+<span class="n">iz_low</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">zvector</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span> 
+<span class="n">ix_highest_and_lowest_comps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ix_high</span><span class="p">,</span> <span class="n">ix_low</span><span class="p">)</span>
+<span class="n">iz_highest_and_lowest_comps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iz_high</span><span class="p">,</span> <span class="n">iz_low</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_arr_index_colors</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+    <span class="c1"># returns an array of indexes in the colors array corresponding to a certain party with color "color"</span>
+    <span class="n">col_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span> <span class="o">==</span> <span class="n">color</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">col_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">))[</span><span class="n">col_mask</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">col_index</span>
+
+<span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
+    <span class="n">ix_color</span> <span class="o">=</span> <span class="n">get_arr_index_colors</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">ix_color</span><span class="p">],</span> <span class="n">zs</span><span class="p">[</span><span class="n">ix_color</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">color_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="nb">list</span><span class="p">(</span><span class="n">color_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">color</span><span class="p">)])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ix_color</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">dp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">'navn'</span><span class="p">],</span> <span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">zs</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ix_highest_and_lowest_comps</span><span class="p">:</span>
+<span class="c1"># arrows project features as vectors onto PC axes</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xvector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">zvector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">zs</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span>
+              <span class="n">color</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+    <span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">xvector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="o">*</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">zvector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">zs</span><span class="p">)</span><span class="o">*</span><span class="mf">2.2</span><span class="p">,</span>
+             <span class="nb">list</span><span class="p">(</span><span class="n">dat</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">3</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iz_highest_and_lowest_comps</span><span class="p">:</span>
+<span class="c1"># arrows project features as vectors onto PC axes</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xvector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">zvector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">zs</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span>
+              <span class="n">color</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">xvector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="o">*</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">zvector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">zs</span><span class="p">)</span><span class="o">*</span><span class="mf">2.2</span><span class="p">,</span>
+             <span class="nb">list</span><span class="p">(</span><span class="n">dat</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'white'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">adjust_text</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+
+<span class="n">lgd</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">num_bills</span><span class="p">)</span><span class="o">+</span><span class="s1">' afstemninger'</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">'size'</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Folketingsperiode '</span> <span class="o">+</span> <span class="n">period_txt</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># invert the x-axis so that the "left wing" goes to the left and the "right wing" to the right. First grab a reference to the current axes and then set the xlimits to be the reverse of the current xlimits</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># vi vender akserne om, så det matcher med det visuelle udtryk om at venstrefløjen er på venstre side og højrefløjen på højre side.</span>
+<span class="c1">#ax.set_ylim(ax.get_ylim()[::-1])</span>
+<span class="c1">#ax.set_xlim([25,-15])</span>
+<span class="c1">#ax.set_ylim([12.5,-12.5])</span>
+
+<span class="c1">#plt.tight_layout()</span>
+
+
+<span class="c1"># Remember: save as pdf and transparent=True for Adobe Illustrator</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">PLOTS_DIR</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">PLOTS_DIR</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PLOTS_DIR</span><span class="p">,</span> <span class="s1">'ft'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">periodid</span><span class="p">)</span><span class="o">+</span><span class="s1">'_xz.png'</span><span class="p">),</span> <span class="n">bbox_extra_artists</span><span class="o">=</span><span class="p">(</span><span class="n">lgd</span><span class="p">,),</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PLOTS_DIR</span><span class="p">,</span> <span class="s1">'ft'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">periodid</span><span class="p">)</span><span class="o">+</span><span class="s1">'_xz.pdf'</span><span class="p">),</span> <span class="n">bbox_extra_artists</span><span class="o">=</span><span class="p">(</span><span class="n">lgd</span><span class="p">,),</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/etsyvni/images/copied_from_nb/plots/ft151_xz.png" alt="pca-resultat for folketinget 2019-2020"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Og igen analyserer, hvilke afstemninger der er væsentlige for denne trejde akse, så vil man kunne se, at de primært handler finanslovsforslag som V og K (og nogle gange LA) stemte imod. Så den tredje-største skillelinje i dansk politik anno 2020 går mellem højrefløjspartier som stemte imod finansloven 2020 (V + K, og delvist LA) og højrefløjspartier som stemte for finansloven 2020 (DF og NB).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/etsyvni/images/copied_from_nb/plots/ft151_heatmap_3.png" alt="heat map for trejde komponent"></p>
 
 </div>
 </div>
