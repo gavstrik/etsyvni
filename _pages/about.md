@@ -4,8 +4,5 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+I currently work at the Center for Information and Bubble Studies at the University of Copenhagen - Denmark. My research and development projects are in the fields of computational social science and educational research. Our team is doing online experiments to investigate collective phenomena in social media, such as attitude change, decision-making and social illusions. We currently develop multiplayer online learning games for norm-based intervention studies in classrooms.
 
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
